@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '0.10'
+deploy:
+  provider: npm
+  email: tcross@bandwidth.com
+  on:
+    repo: wtcross/hapi-monk
+    branch: master
+  api_key:
+    secure: o/F+AxeL6891rW9q9mi2sBiviTzLHC9y7PDrFemvF2rvGOnV1DpKP2JDfK4fe+qCJi8w0L283YPE47IeIhhRLx2rPoO0fYApa/o8TDLidosuR8vAZXKPQhvZ4oVIGxN4jRYQgDh0DZ5eZywrwBTcyo1i7dtHaWRgKllM6uvd82I=
