@@ -7,6 +7,8 @@ hapi-monk [![Build Status](https://travis-ci.org/wtcross/hapi-monk.svg?branch=ma
 
 	npm install --save hapi-monk
 
+This plugin simply exposes all `monk` database methods. It also exposes the created database `options` property. The point is to share the same connection across all plugins in a `Hapi` application.
+
 ### Options
 
 | option | required | default                   | description                        |
