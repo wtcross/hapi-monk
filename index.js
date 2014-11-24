@@ -2,8 +2,6 @@
 var monk    = require("monk");
 var _       = require("lodash");
 
-var version = require("./package.json").version;
-
 exports.register = function (plugin, options, done) {
 	options.url = options.url || "mongodb://localhost:27017";
 
@@ -16,6 +14,5 @@ exports.register = function (plugin, options, done) {
 };
 
 exports.register.attributes = {
-	name    : "hapi-monk",
-	version : version
+	pkg : require("./package.json")
 };

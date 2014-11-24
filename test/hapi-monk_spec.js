@@ -25,18 +25,15 @@ describe("The hapi-monk plugin", function () {
 
 	describe("attributes", function () {
 		var attributes;
+		var pkg = require("../package.json");
 
 		before(function () {
 			attributes = hapiMonk.register.attributes;
 		});
 
-		it("has the correct name", function () {
-			expect(attributes.name, "wrong name").to.equal("hapi-monk");
-		});
-
-		it("has the correct version", function () {
-			var version = require("../package.json").version;
-			expect(attributes.version, "wrong version").to.equal(version);
+		it("has pkg", function () {
+			expect(attributes.pkg, "not an object").to.be.an("object");
+			expect(attributes.pkg, "not right package").to.equal(pkg);
 		});
 	});
 
