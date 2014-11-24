@@ -38,6 +38,20 @@ describe("The hapi-monk plugin", function () {
 	});
 
 	describe("being registered", function () {
+		var db = {
+			one     : function () {},
+			two     : function () {},
+			options : {}
+		};
+
+		before(function () {
+			monk.returns(db);
+		});
+
+		after(function () {
+			monk.reset();
+		});
+
 		describe("without a url specified", function () {
 			before(function (done) {
 				hapiMonk.register(plugin, {}, done);
@@ -57,25 +71,22 @@ describe("The hapi-monk plugin", function () {
 		describe("with a url specified", function () {
 			var result;
 			var url = "foo";
-			var db = {
-				one : function () {},
-				two : function () {}
-			};
 
 			before(function (done) {
-				monk.returns(db);
-
 				result = hapiMonk.register(plugin, { url : url }, done);
 			});
 
 			after(function () {
-				monk.reset();
 				expose.reset();
 			});
 
 			it("uses the url", function () {
 				expect(monk.calledOnce, "monk not called").to.be.true;
 				expect(monk.calledWith(url), "wrong url").to.be.true;
+			});
+
+			it("exposes the database options", function () {
+				expect(plugin.expose.calledWith("options"), "not exposed").to.be.true;
 			});
 
 			it("exposes methods present on database object returned", function () {
