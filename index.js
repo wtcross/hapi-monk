@@ -10,7 +10,7 @@ exports.register = function (plugin, options, done) {
 	plugin.expose("options", db.options);
 
 	_.forEach(_.methods(db), function (method) {
-		plugin.expose(method, db[method]);
+		plugin.expose(method, db[method].bind(db));
 	});
 
 	done();
