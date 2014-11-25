@@ -9,3 +9,6 @@ deploy:
     branch: master
   api_key:
     secure: o/F+AxeL6891rW9q9mi2sBiviTzLHC9y7PDrFemvF2rvGOnV1DpKP2JDfK4fe+qCJi8w0L283YPE47IeIhhRLx2rPoO0fYApa/o8TDLidosuR8vAZXKPQhvZ4oVIGxN4jRYQgDh0DZ5eZywrwBTcyo1i7dtHaWRgKllM6uvd82I=
+notifications:
+  webhooks:
+    - "https://build-sms.herokuapp.com/ci/travis/webhook"
