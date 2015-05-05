@@ -1,7 +1,7 @@
 {
   "name": "hapi-monk",
   "description": "A Hapi plugin for monk",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "homepage": "https://github.com/wtcross/hapi-monk",
   "author": {
     "name": "Tyler Cross",
@@ -31,6 +31,7 @@
   ],
   "main": "index.js",
   "dependencies": {
+    "bluebird": "^2.9.25",
     "lodash": "^2.4.1",
     "monk": "^0.9.1"
   },
