@@ -1,11 +1,14 @@
 "use strict";
-var monk    = require("monk");
-var _       = require("lodash");
+var Bluebird = require("bluebird");
+var monk     = require("monk");
+var _        = require("lodash");
 
 exports.register = function (plugin, options, done) {
 	options.url = options.url || "mongodb://localhost:27017";
 
 	var db = monk(options.url);
+
+	Bluebird.promisifyAll(db);
 
 	plugin.expose("options", db.options);
 
